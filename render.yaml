@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: todoapp-fastapi
+    env: python
+    buildCommand: ""
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://postgres:root@localhost:5432/todoapp

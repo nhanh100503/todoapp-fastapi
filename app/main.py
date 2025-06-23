@@ -10,7 +10,8 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",  # frontend chạy bằng Vite
-    "http://127.0.0.1:3000"
+    "http://127.0.0.1:3000",
+    "https://todoapp-typescript-rrh1.vercel.app"
 ]
 
 app.add_middleware(
