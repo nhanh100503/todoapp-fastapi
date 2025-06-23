@@ -2,9 +2,17 @@ services:
   - type: web
     name: todoapp-fastapi
     env: python
+    plan: free
     buildCommand: ""
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
-    plan: free
     envVars:
       - key: DATABASE_URL
-        value: postgresql://postgres:root@localhost:5432/todoapp
+        value: postgresql://postgres:root@todoapp-fastapi-db:5432/todoapp
+      - key: CORS_ORIGINS
+        value: http://localhost:3000,https://todoapp-typescript-rrh1.vercel.app
+
+databases:
+  - name: todoapp-fastapi-db
+    databaseName: todoapp
+    user: postgres
+    plan: free
